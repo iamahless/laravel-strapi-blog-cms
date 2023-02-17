@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(app()->getLocale());
+});
+
+Route::prefix('{locale}')->where(['locale' => '[a-zA-Z]{2}'])->middleware('setlocale')->group(function () {
+    Route::get('/', [PostController::class, 'index'])->name('post.index');
+    Route::get('/{postId}', [PostController::class, 'show'])->name('post.show');
 });
