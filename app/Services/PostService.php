@@ -22,9 +22,9 @@ class PostService
     public function index($payload): stdClass
     {
         try {
-            $queryString = '/blogs?' .
-                'populate=coverImage,categories&' .
-                'locale=' . $payload->locale;
+            $queryString = '/blogs?'.
+                'populate=coverImage,categories&'.
+                'locale='.$payload->locale;
 
             $request = $this->strapi->get($queryString);
 
@@ -54,9 +54,9 @@ class PostService
             $postIdArray = explode('-', $payload->postId);
             $postId = $postIdArray[0];
 
-            $queryString = '/blogs/' . $postId . '?' .
-                'populate=coverImage,categories&' .
-                'locale=' . $payload->locale;
+            $queryString = '/blogs/'.$postId.'?'.
+                'populate=coverImage,categories&'.
+                'locale='.$payload->locale;
 
             $request = $this->strapi->get($queryString);
 

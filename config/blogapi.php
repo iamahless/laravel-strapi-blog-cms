@@ -5,6 +5,6 @@ return [
     'asset_url' => env('BLOG_ASSETS_URL'),
     'available_locales' => [
         'en',
-        'nl'
+        'nl',
     ],
 ];

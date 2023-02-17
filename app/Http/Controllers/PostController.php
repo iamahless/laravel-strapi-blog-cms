@@ -20,7 +20,7 @@ class PostController extends Controller
 
         if ($payload->status === 200) {
             return view('posts.index', [
-                'posts' => $payload->posts
+                'posts' => $payload->posts,
             ]);
         }
     }
@@ -31,7 +31,7 @@ class PostController extends Controller
 
         if ($payload->status === 200) {
             return view('posts.show', [
-                'post' => $payload->post
+                'post' => $payload->post,
             ]);
         }
     }
